@@ -1,3 +1,4 @@
+# Mentions the data tests
 models:
   - name: dim_listings_cleansed
     columns:

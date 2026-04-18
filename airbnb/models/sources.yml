@@ -1,3 +1,5 @@
+# mentions the aliases used in the models
+# e.g. raw_listings -> listings
 sources:
   - name: airbnb
     schema: raw
