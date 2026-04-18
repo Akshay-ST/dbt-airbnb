@@ -1,8 +1,13 @@
 # Mentions the data tests
 models:
   - name: dim_listings_cleansed
-    columns:
+    data_tests:
+      - minimum_row_count:
+          arguments:
+            min_row_count: 1000
+          severity: warn
 
+    columns:
       - name: listing_id
         data_tests:
           - unique
@@ -24,25 +29,41 @@ models:
                         'Private room',
                         'Shared room',
                         'Hotel room']
+      
+      - name: minimum_nights
+        data_tests:
+          - positive_values
   
   - name: dim_hosts_cleansed
-    columns:
+    config:
+      contract:
+        enforced: true
 
+    columns:
       - name: host_id
+        data_type: integer
         data_tests: 
           - unique
           - not_null
       
       - name: host_name
+        data_type: string
         data_tests:
           - not_null
 
       - name: is_superhost
+        data_type: string
         data_tests:
           - accepted_values:
               arguments:
                 values: ['t', 'f']
-  
+      
+      - name: updated_at
+        data_type: timestamp
+        
+      - name: created_at
+        data_type: timestamp
+
   - name: fct_reviews
     columns:
       
