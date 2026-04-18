@@ -10,7 +10,7 @@ WITH fct_reviews AS (
 full_moon_dates AS (
     SELECT * FROM {{ ref('seed_full_moon_dates') }}
 )
-
+-- Added seed_full_moon_dates.csv in seeds folder and run: dbt seed
 SELECT
   r.*,
   CASE
