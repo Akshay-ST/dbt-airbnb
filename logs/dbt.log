@@ -41,3 +41,31 @@ Runtime Error
 [0m16:29:17.458044 [debug] [MainThread]: Resource report: {"command_name": "compile", "command_success": false, "command_wall_clock_time": 0.13649592, "process_in_blocks": "40", "process_kernel_time": 0.3229, "process_mem_max_rss": "104228", "process_out_blocks": "16", "process_user_time": 2.687847}
 [0m16:29:17.459332 [debug] [MainThread]: Command `dbt compile` failed at 16:29:17.458954 after 0.14 seconds
 [0m16:29:17.460217 [debug] [MainThread]: Flushing usage events
+[0m11:58:28.399007 [debug] [MainThread]: Got an exception trying to initialize tracking
+
+
+============================== 11:58:28.407089 | db7c429a-30bb-4ffe-ba35-92f217bb2a11 ==============================
+[0m11:58:28.407089 [info ] [MainThread]: Running with dbt=1.11.7
+[0m11:58:28.408134 [debug] [MainThread]: running dbt with arguments {'quiet': 'False', 'use_experimental_parser': 'False', 'target_path': 'None', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'warn_error': 'None', 'indirect_selection': 'eager', 'log_format': 'default', 'invocation_command': 'dbt compile --inline SELECT * from {{ ref("dim_listings_cleansed") }} WHERE {{ no_empty_strings(ref("dim_listings_cleansed")) }}', 'debug': 'False', 'use_colors': 'True', 'static_parser': 'True', 'cache_selected_only': 'False', 'empty': 'False', 'write_json': 'True', 'introspect': 'True', 'log_cache_events': 'False', 'fail_fast': 'False', 'send_anonymous_usage_stats': 'True', 'no_print': 'None', 'profiles_dir': '/home/akshay/.dbt', 'partial_parse': 'True', 'log_path': 'logs', 'version_check': 'True', 'printer_width': '80'}
+[0m11:58:28.409046 [error] [MainThread]: Encountered an error:
+Runtime Error
+  No dbt_project.yml found at expected path /home/akshay/Documents/Setups/1Projects/dbt-airbnb/dbt_project.yml
+  Verify that each entry within packages.yml (and their transitive dependencies) contains a file named dbt_project.yml
+  
+[0m11:58:28.410485 [debug] [MainThread]: Resource report: {"command_name": "compile", "command_success": false, "command_wall_clock_time": 0.13491958, "process_in_blocks": "50880", "process_kernel_time": 0.426938, "process_mem_max_rss": "103964", "process_out_blocks": "8", "process_user_time": 3.193582}
+[0m11:58:28.411313 [debug] [MainThread]: Command `dbt compile` failed at 11:58:28.411152 after 0.14 seconds
+[0m11:58:28.411940 [debug] [MainThread]: Flushing usage events
+[0m20:05:09.073638 [debug] [MainThread]: Got an exception trying to initialize tracking
+
+
+============================== 20:05:09.080189 | 179e14d1-5efa-4f63-97a9-3004bda04d90 ==============================
+[0m20:05:09.080189 [info ] [MainThread]: Running with dbt=1.11.7
+[0m20:05:09.081231 [debug] [MainThread]: running dbt with arguments {'profiles_dir': '/home/akshay/.dbt', 'static_parser': 'True', 'invocation_command': 'dbt deps', 'target_path': 'None', 'cache_selected_only': 'False', 'use_colors': 'True', 'empty': 'None', 'fail_fast': 'False', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'write_json': 'True', 'use_experimental_parser': 'False', 'debug': 'False', 'quiet': 'False', 'no_print': 'None', 'version_check': 'True', 'indirect_selection': 'eager', 'partial_parse': 'True', 'warn_error': 'None', 'log_path': 'logs', 'introspect': 'True', 'log_cache_events': 'False', 'send_anonymous_usage_stats': 'True', 'printer_width': '80', 'log_format': 'default'}
+[0m20:05:09.082303 [error] [MainThread]: Encountered an error:
+Runtime Error
+  No dbt_project.yml found at expected path /home/akshay/Documents/Setups/1Projects/dbt-airbnb/dbt_project.yml
+  Verify that each entry within packages.yml (and their transitive dependencies) contains a file named dbt_project.yml
+  
+[0m20:05:09.083742 [debug] [MainThread]: Resource report: {"command_name": "deps", "command_success": false, "command_wall_clock_time": 0.15853508, "process_in_blocks": "0", "process_kernel_time": 0.401407, "process_mem_max_rss": "104000", "process_out_blocks": "8", "process_user_time": 3.496002}
+[0m20:05:09.084857 [debug] [MainThread]: Command `dbt deps` failed at 20:05:09.084636 after 0.16 seconds
+[0m20:05:09.085885 [debug] [MainThread]: Flushing usage events

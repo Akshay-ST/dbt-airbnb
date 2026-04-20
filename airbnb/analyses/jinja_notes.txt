@@ -1,0 +1,91 @@
+Jinja: 
+Templating language that lets you write dynamic, 
+reusable SQL Code.
+"programming inside your SQL"
+It contains:
+    variables
+    conditions and loops
+    Functions
+    Macros
+
+1. Comments:
+{ # This is a comment #}
+
+2. Statements:
+{% set my_name = "Akshay" %}
+
+3. Expressions:
+{{ my_name }}
+output: "Akshay"
+
+---------------
+Some built in variables:
+{{ this }} references the model being built
+
+{{ target.name }} name of the target - default is defined in dbt_profiles.yml (dev)
+
+{{ target.database }} 
+{{ target.schema }}
+
+---------------
+JINJA - MACRO (FUNCTION) EXAMPLES
+{{ log("Debug message", info=True) }}     Prints to the console
+{{ var("user_name") }}                    Get variable value
+{{ ref('dim_listings_cleansed') }}        References another model - dbt specific
+{{ source('airbnb', 'listings') }}        References a source table - dbt specific
+{{ config('dim_listings_cleansed') }}     References another model - dbt specific
+{{ adapter.get_columns_in_relation }}     Adapter-level functionality - dbt specific
+
+---------------
+Macros (Functions) in dbt:
+Macros are jinja macros created in the macros folder
+There are many built-in macros in dbt
+You Can use macros in vairous places:
+    model defination
+    tests
+    other macros
+
+---------------
+CUSTOM BUILDING BLOCKS IN DBT
+{% test … %} Test Definition
+{% snapshot %} Snapshot definition
+{% docs %} Documentation block
+{% materialization %} Custom materialization
+
+---------------
+JINJA - DEFINING MACROS
+
+{% macro select_positive_values(model, column_name) %}
+SELECT *
+FROM {{ model }}
+WHERE {{ column_name }} > 0
+{% endmacro %}
+
+---------------
+JINJA - IF/ELSE
+
+SELECT * FROM {{ ref('src_reviews') }} WHERE review_text IS NOT NULL
+{% if is_incremental() %}
+    AND review_date > (SELECT MAX(review_date) FROM {{ this }})
+    {{ log('Loading incrementally - new reviews only', info=True) }}
+{% else %}
+    {{ log('Loading all reviews - first run or full refresh', info=True) }}
+{% endif %}
+
+---------------
+JINJA - LOOPS
+
+{% set columns = ['listing_id', 'listing_name', 'price'] %}
+SELECT
+{% for col in columns %}
+    {{ col }}{% if not loop.last %}, {% endif %}
+{% endfor %}
+FROM {{ ref('dim_listings_cleansed') }}
+
+---------------
+WHITESPACE CONTROL
+
+{% statement %}: No whitespace control
+{%- statement %}: Strip whitespace BEFORE
+{% statement -%}: Strip whitespace AFTER
+{%- statement -%} Strip whitespace BEFORE and AFTER
