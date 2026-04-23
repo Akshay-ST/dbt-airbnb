@@ -1,6 +1,7 @@
 # Mentions the data tests
 models:
   - name: dim_listings_cleansed
+    description: Cleansed table which contains Airbnb listings.
     data_tests:
       - minimum_row_count:
           arguments:
@@ -9,11 +10,13 @@ models:
 
     columns:
       - name: listing_id
+        description: Primary key for the listing
         data_tests:
           - unique
           - not_null
 
       - name: host_id
+        description: The host's id. References the host table.
         data_tests:
          - not_null
          - relationships:
@@ -22,6 +25,7 @@ models:
               field: host_id
 
       - name: room_type
+        description: Type of the apartment / room
         data_tests:
           - accepted_values:
               arguments:
@@ -31,27 +35,32 @@ models:
                         'Hotel room']
       
       - name: minimum_nights
+        description: '{{ doc("dim_listing_cleansed__minimum_nights") }}'
         data_tests:
           - positive_values
   
   - name: dim_hosts_cleansed
+    description: Cleansed table which contains Airbnb hosts.
     config:
       contract:
         enforced: true
 
     columns:
       - name: host_id
+        description: Primary key for the host
         data_type: integer
         data_tests: 
           - unique
           - not_null
       
       - name: host_name
+        description: The host's name
         data_type: string
         data_tests:
           - not_null
 
       - name: is_superhost
+        description: Whether the host is a superhost or not
         data_type: string
         data_tests:
           - accepted_values:

@@ -69,3 +69,31 @@ Runtime Error
 [0m20:05:09.083742 [debug] [MainThread]: Resource report: {"command_name": "deps", "command_success": false, "command_wall_clock_time": 0.15853508, "process_in_blocks": "0", "process_kernel_time": 0.401407, "process_mem_max_rss": "104000", "process_out_blocks": "8", "process_user_time": 3.496002}
 [0m20:05:09.084857 [debug] [MainThread]: Command `dbt deps` failed at 20:05:09.084636 after 0.16 seconds
 [0m20:05:09.085885 [debug] [MainThread]: Flushing usage events
+[0m15:38:21.981676 [debug] [MainThread]: Got an exception trying to initialize tracking
+
+
+============================== 15:38:21.990188 | 2eae98bf-0f5b-437a-8e04-4d638a7b25d9 ==============================
+[0m15:38:21.990188 [info ] [MainThread]: Running with dbt=1.11.7
+[0m15:38:21.991269 [debug] [MainThread]: running dbt with arguments {'warn_error': 'None', 'cache_selected_only': 'False', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'indirect_selection': 'eager', 'printer_width': '80', 'use_experimental_parser': 'False', 'version_check': 'True', 'debug': 'False', 'use_colors': 'True', 'quiet': 'False', 'log_cache_events': 'False', 'static_parser': 'True', 'log_format': 'default', 'fail_fast': 'False', 'invocation_command': 'dbt docs generate', 'profiles_dir': '/home/akshay/.dbt', 'write_json': 'True', 'log_path': 'logs', 'introspect': 'True', 'empty': 'None', 'no_print': 'None', 'send_anonymous_usage_stats': 'True', 'target_path': 'None', 'partial_parse': 'True'}
+[0m15:38:21.992170 [error] [MainThread]: Encountered an error:
+Runtime Error
+  No dbt_project.yml found at expected path /home/akshay/Documents/Setups/1Projects/dbt-airbnb/dbt_project.yml
+  Verify that each entry within packages.yml (and their transitive dependencies) contains a file named dbt_project.yml
+  
+[0m15:38:21.993562 [debug] [MainThread]: Resource report: {"command_name": "generate", "command_success": false, "command_wall_clock_time": 0.14310443, "process_in_blocks": "52216", "process_kernel_time": 0.440701, "process_mem_max_rss": "103988", "process_out_blocks": "8", "process_user_time": 3.51765}
+[0m15:38:21.994586 [debug] [MainThread]: Command `dbt docs generate` failed at 15:38:21.994395 after 0.14 seconds
+[0m15:38:21.995256 [debug] [MainThread]: Flushing usage events
+[0m15:53:36.538961 [debug] [MainThread]: Got an exception trying to initialize tracking
+
+
+============================== 15:53:36.545606 | 9911780b-cfb3-4d9d-86be-026158b2879e ==============================
+[0m15:53:36.545606 [info ] [MainThread]: Running with dbt=1.11.7
+[0m15:53:36.546655 [debug] [MainThread]: running dbt with arguments {'invocation_command': 'dbt docs serve', 'warn_error': 'None', 'target_path': 'None', 'log_format': 'default', 'introspect': 'True', 'empty': 'None', 'static_parser': 'True', 'fail_fast': 'False', 'debug': 'False', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'log_path': 'logs', 'printer_width': '80', 'version_check': 'True', 'use_experimental_parser': 'False', 'write_json': 'True', 'cache_selected_only': 'False', 'profiles_dir': '/home/akshay/.dbt', 'log_cache_events': 'False', 'quiet': 'False', 'partial_parse': 'True', 'send_anonymous_usage_stats': 'True', 'no_print': 'None', 'use_colors': 'True', 'indirect_selection': 'eager'}
+[0m15:53:36.547527 [error] [MainThread]: Encountered an error:
+Runtime Error
+  No dbt_project.yml found at expected path /home/akshay/Documents/Setups/1Projects/dbt-airbnb/dbt_project.yml
+  Verify that each entry within packages.yml (and their transitive dependencies) contains a file named dbt_project.yml
+  
+[0m15:53:36.549058 [debug] [MainThread]: Resource report: {"command_name": "serve", "command_success": false, "command_wall_clock_time": 0.1447685, "process_in_blocks": "0", "process_kernel_time": 0.289665, "process_mem_max_rss": "103960", "process_out_blocks": "8", "process_user_time": 2.74436}
+[0m15:53:36.550027 [debug] [MainThread]: Command `dbt docs serve` failed at 15:53:36.549863 after 0.15 seconds
+[0m15:53:36.550634 [debug] [MainThread]: Flushing usage events
