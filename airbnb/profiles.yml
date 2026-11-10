@@ -13,4 +13,9 @@ airbnb:
       schema: DEV
       threads: 1
       warehouse: COMPUTE_WH
-  target: dev
+    local:
+      type: duckdb
+      path: ../airbnb.duckdb
+      schema: main
+      threads: 4
+  target: local

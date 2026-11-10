@@ -1,9 +1,7 @@
 WITH
 l AS (
-    SELECT
-        *
-    FROM
-        {{ ref('dim_listings_cleansed') }}
+    SELECT *
+    FROM {{ ref('dim_listings_cleansed') }}
 ),
 h AS (
     SELECT *
